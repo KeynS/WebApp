@@ -1,0 +1,286 @@
+﻿@using DataAccess.Entities
+@using WebApplication.Models
+
+
+@model DataShopModel
+
+@{
+    ViewBag.Title = "Index";
+    double total = 0;
+}
+
+<!-- Cart -->
+<div class="wrap-header-cart js-panel-cart">
+    <div class="s-full js-hide-cart"></div>
+
+    <div class="header-cart flex-col-l p-l-65 p-r-25">
+        <div class="header-cart-title flex-w flex-sb-m p-b-8">
+            <span class="mtext-103 cl2">
+                @WebApplication.Resources.language.MyStrings.Cart
+            </span>
+
+            <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+                <i class="zmdi zmdi-close"></i>
+            </div>
+        </div>
+
+        <div class="header-cart-content flex-w js-pscroll">
+            <ul class="header-cart-wrapitem w-full ">
+                @foreach (var i in Model.Baskets)
+                {
+                    <li class='header-cart-item flex-w flex-t m-b-12' id='li-@i.Product.Id'>
+                        @{
+                            total += i.Count * i.Product.Price;
+                        }
+                        <div class='header-cart-item-img' onclick='deleteOne(@i.Product.Id, @((i.Count * i.Product.Price).ToString().Replace(",", ".")))'>
+                            <img src='@Url.Content("~/images/load/" + i.Product.Url)' alt='IMG'>
+                        </div>
+
+                        <div class='header-cart-item-txt p-t-8'>
+                            <a href='#' class='header-cart-item-name m-b-18 hov-cl1 trans-04'>
+                                @i.Product.Name
+                            </a>
+                            <span class='header-cart-item-info' data-id='@i.Product.Id'>
+                                <span id='basket-@i.Product.Id'>@i.Count</span> x @i.Product.Price
+                            </span>
+                        </div>
+                    </li>
+
+                    <script>function deleteOne(id, tot) { $('.icon-header-noti').attr('data-notify', parseInt($('.icon-header-noti').attr('data-notify')) - 1); $('#total-price').text((parseFloat($('#total-price').text().replace(',', '.')) - tot).toString().replace('.', ',')); document.getElementById('li-' + id).remove(); $.ajax({ url: '/Home/DelPoductInBasket/', method: 'POST', data: { IdProduct: id } }); }</script>
+                }
+            </ul>
+
+            <div class="w-full">
+                <div class="header-cart-total w-full p-tb-40">
+                    Total: $<div class="total-price" id="total-price">@total</div>
+                </div>
+
+                <div class="header-cart-buttons flex-w w-full">
+                    @Html.ActionLink("View Cart", "Cart", "Home", new { @class = "flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" })
+
+                    <a id="crealBasketBtn" href="#" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                        @WebApplication.Resources.language.MyStrings.ClearCart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section-slide">
+    <div class="wrap-slick1">
+        <div class="slick1">
+            <div class="item-slick1" style="background-image: url(/../../images/slide-01.bmp);">
+                <div class="container h-full">
+                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+                            <span class="ltext-101 cl2 respon2">
+                                @WebApplication.Resources.language.MyStrings.Test
+                            </span>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+                            <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+                                ASUS & MSI
+                            </h2>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
+                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-slick1" style="background-image: url(/../../images/slide-02.bmp);">
+                <div class="container h-full">
+                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                        <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
+                            <span class="ltext-101 cl2 respon2">
+                                @WebApplication.Resources.language.MyStrings.BestPeripherals
+                            </span>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
+                            <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+                                Hyperx & Logitech
+                            </h2>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-slick1" style="background-image: url(/../../images/slide-03.bmp);">
+                <div class="container h-full">
+                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                        <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+                            <span class="ltext-101 cl2 respon2">
+                                @WebApplication.Resources.language.MyStrings.Wires
+                            </span>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
+                            <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+                                HDMI & DisplayPort
+                            </h2>
+                        </div>
+
+                        <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
+                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Banner -->
+<div class="sec-banner bg0 p-t-80 p-b-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block1 -->
+                <div class="block1 wrap-pic-w">
+                    <img src="/../../images/cat-1.png" alt="IMG-BANNER">
+
+                    <a href="/ru/home/shop/" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
+                            <span class="block1-name ltext-102 trans-04 p-b-8">
+                                @WebApplication.Resources.language.MyStrings.Comp
+                            </span>
+
+                            <span class="block1-info stext-102 trans-04">
+                                @WebApplication.Resources.language.MyStrings.LargeSelection<br /> @WebApplication.Resources.language.MyStrings.OfComputers
+                            </span>
+                        </div>
+
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block1 -->
+                <div class="block1 wrap-pic-w">
+                    <img src="/../../images/cat-2.png" alt="IMG-BANNER">
+
+                    <a href="/ru/home/shop/" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
+                            <span class="block1-name ltext-102 trans-04 p-b-8">
+                                @WebApplication.Resources.language.MyStrings.Monitor
+                            </span>
+
+                            <span class="block1-info stext-102 trans-04">
+                                @WebApplication.Resources.language.MyStrings.BestGaming<br /> @WebApplication.Resources.language.MyStrings.Monitor
+                            </span>
+                        </div>
+
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block1 -->
+                <div class="block1 wrap-pic-w">
+                    <img src="/../../images/cat-3.png" alt="IMG-BANNER">
+
+                    <a href="/ru/home/shop/" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
+                            <span class="block1-name ltext-102 trans-04 p-b-8">
+                                @WebApplication.Resources.language.MyStrings.Bag
+                            </span>
+
+                            <span class="block1-info stext-102 trans-04">
+                                @WebApplication.Resources.language.MyStrings.LargeSelection<br /> @WebApplication.Resources.language.MyStrings.OfBags
+                            </span>
+                        </div>
+
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                @WebApplication.Resources.language.MyStrings.ShopNow
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="bg0 p-t-23 p-b-80">
+    <div class="container">
+        <div class="p-b-10">
+            <h3 class="ltext-103 cl5">
+                @WebApplication.Resources.language.MyStrings.ProductOverview
+            </h3>
+        </div>
+
+        <div class="flex-w flex-sb-m p-b-52">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                    @WebApplication.Resources.language.MyStrings.LastAdded
+                </button>
+            </div>
+        </div>
+
+        <div class="row isotope-grid">
+
+            @foreach (var i in Model.Products)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+
+                            <img src=@Url.Content("~/images/load/" + i.Url) alt="IMG-PRODUCT">
+
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    @i.Name
+                                </a>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-1">
+                                <span class="stext-105 cl3">
+                                    $@i.Price
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+        <!-- Load more -->
+        <div class="flex-c-m flex-w w-full p-t-45">
+            <a href="/ru/home/shop/" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                @WebApplication.Resources.language.MyStrings.ShowAllProduct
+            </a>
+        </div>
+    </div>
+</section>

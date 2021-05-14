@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D66ECC3C-7B89-43F7-913B-720248466D6E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication</RootNamespace>
+    <AssemblyName>WebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.24\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RouteLocalization.Mvc, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RouteLocalization.Mvc.2.3.0\lib\net40\RouteLocalization.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Basket.cs" />
+    <Compile Include="Models\DataShopModel.cs" />
+    <Compile Include="Models\Login\LoginLinkUserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\language\MyStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Mail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\about-01.jpg" />
+    <Content Include="images\about-02.jpg" />
+    <Content Include="images\avatar.jpg" />
+    <Content Include="images\banner-01.jpg" />
+    <Content Include="images\banner-02.jpg" />
+    <Content Include="images\banner-03.jpg" />
+    <Content Include="images\banner-04.jpg" />
+    <Content Include="images\banner-05.jpg" />
+    <Content Include="images\banner-06.jpg" />
+    <Content Include="images\banner-07.jpg" />
+    <Content Include="images\banner-08.jpg" />
+    <Content Include="images\banner-09.jpg" />
+    <Content Include="images\bg-01.jpg" />
+    <Content Include="images\bg-02.jpg" />
+    <Content Include="images\cat-1.png" />
+    <Content Include="images\cat-2.png" />
+    <Content Include="images\cat-3.png" />
+    <Content Include="images\icons\favicon.png" />
+    <Content Include="images\icons\icon-close.png" />
+    <Content Include="images\icons\icon-close2.png" />
+    <Content Include="images\icons\icon-email.png" />
+    <Content Include="images\icons\icon-heart-01.png" />
+    <Content Include="images\icons\icon-heart-02.png" />
+    <Content Include="images\icons\icon-next.png" />
+    <Content Include="images\icons\icon-pay-01.png" />
+    <Content Include="images\icons\icon-pay-02.png" />
+    <Content Include="images\icons\icon-pay-03.png" />
+    <Content Include="images\icons\icon-pay-04.png" />
+    <Content Include="images\icons\icon-pay-05.png" />
+    <Content Include="images\icons\icon-prev.png" />
+    <Content Include="images\icons\logo-01.png" />
+    <Content Include="images\icons\logo-02.png" />
+    <Content Include="images\icons\pin.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="images\img-01.png" />
+    <Content Include="images\load\1.png" />
+    <Content Include="images\load\2.png" />
+    <Content Include="images\load\3.png" />
+    <Content Include="images\load\4.png" />
+    <Content Include="images\load\5.png" />
+    <Content Include="images\product-01.jpg" />
+    <Content Include="Resources\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Resources\css\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Resources\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Resources\css\bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="Resources\css\bootstrap\bootstrap.css" />
+    <Content Include="Resources\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Resources\css\util.css" />
+    <Content Include="Resources\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Resources\css\main.css" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Resources\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Resources\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Resources\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\icon-font.min.css" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Resources\fonts\Montserrat\OFL.txt" />
+    <Content Include="Resources\fonts\PlayfairDisplay\OFL.txt" />
+    <Content Include="Resources\js\bootstrap\bootstrap.js" />
+    <Content Include="Resources\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Black.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Bold.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Italic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Light.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Medium.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-Thin.ttf" />
+    <Content Include="Resources\fonts\Poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Resources\js\bootstrap\popper.js" />
+    <Content Include="Resources\js\bootstrap\popper.min.js" />
+    <Content Include="Resources\js\bootstrap\tooltip.js" />
+    <Content Include="Resources\js\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Resources\js\main.js" />
+    <Content Include="Resources\js\map-custom.js" />
+    <Content Include="Resources\js\slick-custom.js" />
+    <Content Include="Resources\css\login.css" />
+    <Content Include="Resources\js\jquery\tilt.jquery.min.js" />
+    <Content Include="Resources\vendor\animate\animate.css" />
+    <Content Include="Resources\vendor\animsition\css\animsition.css" />
+    <Content Include="Resources\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Resources\vendor\animsition\js\animsition.js" />
+    <Content Include="Resources\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Resources\vendor\isotope\isotope.pkgd.min.js" />
+    <Content Include="Resources\vendor\slick\ajax-loader.gif" />
+    <Content Include="Resources\vendor\slick\fonts\slick.svg" />
+    <Content Include="Resources\vendor\slick\slick-theme.css" />
+    <Content Include="Resources\vendor\slick\slick.css" />
+    <Content Include="Resources\vendor\slick\slick.js" />
+    <Content Include="Resources\vendor\slick\slick.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Resources\vendor\slick\config.rb" />
+    <Content Include="Resources\vendor\slick\fonts\slick.eot" />
+    <Content Include="Resources\vendor\slick\fonts\slick.ttf" />
+    <Content Include="Resources\vendor\slick\fonts\slick.woff" />
+    <Content Include="Resources\vendor\slick\slick-theme.less" />
+    <Content Include="Resources\vendor\slick\slick-theme.scss" />
+    <Content Include="Resources\vendor\slick\slick.less" />
+    <Content Include="Resources\vendor\slick\slick.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Resources\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Resources\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Resources\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-Black.ttf" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-BlackItalic.ttf" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-Bold.ttf" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-BoldItalic.ttf" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-Italic.ttf" />
+    <Content Include="Resources\fonts\PlayfairDisplay\PlayfairDisplay-Regular.ttf" />
+    <Content Include="Resources\css\bootstrap\bootstrap-grid.css.map" />
+    <Content Include="Resources\css\bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="Resources\css\bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="Resources\css\bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="Resources\css\bootstrap\bootstrap.css.map" />
+    <Content Include="Resources\css\bootstrap\bootstrap.min.css.map" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Resources\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Resources\fonts\linearicons-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Black.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Light.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Resources\fonts\Montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Resources\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Resources\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Resources\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Resources\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_LoginLink.cshtml" />
+    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\language\MyStrings.ru.resx" />
+    <EmbeddedResource Include="Resources\language\MyStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MyStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{0c2748f0-fc41-4183-a9cd-4c263cf3689d}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{4707398d-a770-4f7e-a6a5-7cb00b2c7035}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57271</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57271/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:57271/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
